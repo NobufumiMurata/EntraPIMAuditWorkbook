@@ -13,7 +13,7 @@ This workbook might help the audit log visibility for IT operator.
 - This workbook needs Microsoft Entra diagnostics settings that Audit log would be sent to the Log Analytics Workspaces.
 
 ## Deploy
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/TODO)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FNobufumiMurata%2FEntraPIMAuditWorkbook%2Fmain%2FWorkbooks%2FMicrosoftEntraPIMAudit.workbook)
 
 ## Disclaimer
 The column specifications for exported Audit Logs are not disclosed, and the KQL query is based on the information output by the writer's operation in test enviroment, so it is not guaranteed to work correctly in all environments. Please understand in advance.
