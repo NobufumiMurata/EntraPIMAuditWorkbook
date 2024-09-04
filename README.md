@@ -19,7 +19,7 @@ This workbook might help the audit log visibility for IT operator.
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FNobufumiMurata%2FEntraPIMAuditWorkbook%2Fmain%2FWorkbooks%2FMicrosoftEntraPIMAudit.workbook)
 
 3. Fill the Resouce ID value obtained in 1 in "workbookSourceId" field. and type in "workbookDisplayName" field if you want to change.
-4. Deploy to Azure.
+4. Hot the "Create" button.
 
 ## Disclaimer
 The column (ex. Additional Fiels column) specifications for exported Audit Logs are not disclosed, and the KQL query is based on the information output by the writer's operation in test enviroment, so it is not guaranteed to work correctly in all environments. Please understand in advance.
