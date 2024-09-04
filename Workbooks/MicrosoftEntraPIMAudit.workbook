@@ -1,250 +1,283 @@
 {
-  "version": "Notebook/1.0",
-  "items": [
-    {
-      "type": 1,
-      "content": {
-        "json": "## Privileged Identity Management Audit History"
-      },
-      "name": "Title"
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceName": {
+            "type": "string",
+            "defaultValue": "my-workbook-template",
+            "metadata": {
+                "description": "The unique name for this workbook template instance"
+            }
+        }
     },
-    {
-      "type": 9,
-      "content": {
-        "version": "KqlParameterItem/1.0",
-        "parameters": [
-          {
-            "id": "c5c8d63a-17f8-48dc-8b15-99070ae115c9",
-            "version": "KqlParameterItem/1.0",
-            "name": "Subscription",
-            "type": 6,
-            "isRequired": true,
-            "multiSelect": true,
-            "quote": "'",
-            "delimiter": ",",
-            "typeSettings": {
-              "additionalResourceOptions": [],
-              "includeAll": true,
-              "showDefault": false
-            },
-            "timeContext": {
-              "durationMs": 86400000
-            },
-            "value": [
-              ""
-            ]
-          },
-          {
-            "id": "6d010c85-99e3-41fb-8f4b-232849c3db00",
-            "version": "KqlParameterItem/1.0",
-            "name": "Workspace",
-            "type": 5,
-            "isRequired": true,
-            "multiSelect": true,
-            "quote": "'",
-            "delimiter": ",",
-            "typeSettings": {
-              "resourceTypeFilter": {
-                "microsoft.operationalinsights/workspaces": true
-              },
-              "additionalResourceOptions": [],
-              "showDefault": false
-            },
-            "timeContext": {
-              "durationMs": 86400000
-            },
-            "value": [
-              ""
-            ]
-          },
-          {
-            "id": "dd335429-d67b-47d8-9562-41e315cdd0db",
-            "version": "KqlParameterItem/1.0",
-            "name": "TimeRange",
-            "type": 4,
-            "isRequired": true,
-            "typeSettings": {
-              "selectableValues": [
-                {
-                  "durationMs": 3600000
-                },
-                {
-                  "durationMs": 14400000
-                },
-                {
-                  "durationMs": 43200000
-                },
-                {
-                  "durationMs": 86400000
-                },
-                {
-                  "durationMs": 172800000
-                },
-                {
-                  "durationMs": 259200000
-                },
-                {
-                  "durationMs": 604800000
-                },
-                {
-                  "durationMs": 1209600000
+    "resources": [
+        {
+            "name": "[parameters('resourceName')]",
+            "type": "microsoft.insights/workbooktemplates",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2019-10-17-preview",
+            "dependsOn": [],
+            "properties": {
+                "galleries": [
+                    {
+                        "name": "A Workbook Template",
+                        "category": "Deployed Templates",
+                        "order": 100,
+                        "type": "workbook",
+                        "resourceType": "Azure Monitor"
+                    }
+                ],
+                "templateData": {
+                  "version": "Notebook/1.0",
+                  "items": [
+                    {
+                      "type": 1,
+                      "content": {
+                        "json": "## Privileged Identity Management Audit History"
+                      },
+                      "name": "Title"
+                    },
+                    {
+                      "type": 9,
+                      "content": {
+                        "version": "KqlParameterItem/1.0",
+                        "parameters": [
+                          {
+                            "id": "c5c8d63a-17f8-48dc-8b15-99070ae115c9",
+                            "version": "KqlParameterItem/1.0",
+                            "name": "Subscription",
+                            "type": 6,
+                            "isRequired": true,
+                            "multiSelect": true,
+                            "quote": "'",
+                            "delimiter": ",",
+                            "typeSettings": {
+                              "additionalResourceOptions": [],
+                              "includeAll": true,
+                              "showDefault": false
+                            },
+                            "timeContext": {
+                              "durationMs": 86400000
+                            },
+                            "value": [
+                              ""
+                            ]
+                          },
+                          {
+                            "id": "6d010c85-99e3-41fb-8f4b-232849c3db00",
+                            "version": "KqlParameterItem/1.0",
+                            "name": "Workspace",
+                            "type": 5,
+                            "isRequired": true,
+                            "multiSelect": true,
+                            "quote": "'",
+                            "delimiter": ",",
+                            "typeSettings": {
+                              "resourceTypeFilter": {
+                                "microsoft.operationalinsights/workspaces": true
+                              },
+                              "additionalResourceOptions": [],
+                              "showDefault": false
+                            },
+                            "timeContext": {
+                              "durationMs": 86400000
+                            },
+                            "value": [
+                              ""
+                            ]
+                          },
+                          {
+                            "id": "dd335429-d67b-47d8-9562-41e315cdd0db",
+                            "version": "KqlParameterItem/1.0",
+                            "name": "TimeRange",
+                            "type": 4,
+                            "isRequired": true,
+                            "typeSettings": {
+                              "selectableValues": [
+                                {
+                                  "durationMs": 3600000
+                                },
+                                {
+                                  "durationMs": 14400000
+                                },
+                                {
+                                  "durationMs": 43200000
+                                },
+                                {
+                                  "durationMs": 86400000
+                                },
+                                {
+                                  "durationMs": 172800000
+                                },
+                                {
+                                  "durationMs": 259200000
+                                },
+                                {
+                                  "durationMs": 604800000
+                                },
+                                {
+                                  "durationMs": 1209600000
+                                }
+                              ],
+                              "allowCustom": true
+                            },
+                            "timeContext": {
+                              "durationMs": 86400000
+                            },
+                            "value": {
+                              "durationMs": 1209600000
+                            }
+                          }
+                        ],
+                        "style": "pills",
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces"
+                      },
+                      "name": "Parameters"
+                    },
+                    {
+                      "type": 3,
+                      "content": {
+                        "version": "KqlItem/1.0",
+                        "query": "AuditLogs\n| where LoggedByService == \"PIM\"\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\n| extend ResourceName = case(\n    Category==\"RoleManagement\",\n        iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))),\n    Category==\"GroupManagement\",\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])),\n    Category==\"ResourceManagement\",\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\n        iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\n        iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\n        ))),\"\")\n| extend Scope = case(\n    Category==\"RoleManagement\",\n        iff(isnotempty(TargetResources.[5].[\"displayName\"]),TargetResources.[5].[\"displayName\"],\n        iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])))),\n    Category==\"GroupManagement\",\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])),\n    Category==\"ResourceManagement\",\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\n        iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\n        iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\n        ))),\"\")\n| extend Subject = \n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category",
+                        "size": 2,
+                        "title": "All Category Audit History query",
+                        "timeContextFromParameter": "TimeRange",
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces",
+                        "crossComponentResources": [
+                          "{Workspace}"
+                        ],
+                        "gridSettings": {
+                          "rowLimit": 100,
+                          "sortBy": [
+                            {
+                              "itemKey": "Identity",
+                              "sortOrder": 1
+                            }
+                          ]
+                        },
+                        "sortBy": [
+                          {
+                            "itemKey": "Identity",
+                            "sortOrder": 1
+                          }
+                        ]
+                      },
+                      "name": "All Category Audit History query",
+                      "styleSettings": {
+                        "showBorder": true
+                      }
+                    },
+                    {
+                      "type": 3,
+                      "content": {
+                        "version": "KqlItem/1.0",
+                        "query": "AuditLogs\r\n| where TimeGenerated > ago(90d)\r\n| where LoggedByService == \"PIM\"\r\n| where Category == \"RoleManagement\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\r\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\r\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\r\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\r\n| extend ResourceName = \r\n    iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])))\r\n| extend Scope = \r\n    iff(isnotempty(TargetResources.[5].[\"displayName\"]),TargetResources.[5].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))))\r\n| extend Subject = \r\n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \r\n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \r\n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\r\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category, AdditionalDetails, TargetResources",
+                        "size": 0,
+                        "title": "Role Management",
+                        "timeContextFromParameter": "TimeRange",
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces"
+                      },
+                      "customWidth": "30",
+                      "name": "Group Management",
+                      "styleSettings": {
+                        "padding": "20"
+                      }
+                    },
+                    {
+                      "type": 3,
+                      "content": {
+                        "version": "KqlItem/1.0",
+                        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| where Category == \"GroupManagement\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\r\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\r\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\r\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\r\n| extend ResourceName = \r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))\r\n| extend Scope = \r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))\r\n| extend Subject = \r\n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \r\n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \r\n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\r\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category, AdditionalDetails, TargetResources",
+                        "size": 0,
+                        "title": "Group Management",
+                        "timeContextFromParameter": "TimeRange",
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces"
+                      },
+                      "customWidth": "30",
+                      "name": "Group Management",
+                      "styleSettings": {
+                        "padding": "20"
+                      }
+                    },
+                    {
+                      "type": 3,
+                      "content": {
+                        "version": "KqlItem/1.0",
+                        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| where Category == \"ResourceManagement\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\r\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\r\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\r\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\r\n| extend ResourceName = \r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\r\n    iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\r\n    )))\r\n| extend Scope = \r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\r\n    iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\r\n    )))\r\n| extend Subject = \r\n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \r\n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \r\n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\r\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category, AdditionalDetails, TargetResources",
+                        "size": 0,
+                        "title": "Resource Management",
+                        "timeContextFromParameter": "TimeRange",
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces"
+                      },
+                      "customWidth": "30",
+                      "name": "Resource Management",
+                      "styleSettings": {
+                        "padding": "20"
+                      }
+                    },
+                    {
+                      "type": 3,
+                      "content": {
+                        "version": "KqlItem/1.0",
+                        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| summarize count() by Category\r\n| render piechart\r\n",
+                        "size": 0,
+                        "title": "Category Percentage",
+                        "timeContext": {
+                          "durationMs": 86400000
+                        },
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces",
+                        "visualization": "piechart"
+                      },
+                      "customWidth": "30",
+                      "name": "Category Percentage Query"
+                    },
+                    {
+                      "type": 3,
+                      "content": {
+                        "version": "KqlItem/1.0",
+                        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| summarize count() by bin(ActivityDateTime, 1d), Category\r\n",
+                        "size": 0,
+                        "title": "Daily Activity Transition (Recently 30 day)",
+                        "timeContext": {
+                          "durationMs": 2592000000
+                        },
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces",
+                        "visualization": "timechart"
+                      },
+                      "customWidth": "70",
+                      "name": "Daily Activity Transition query"
+                    },
+                    {
+                      "type": 3,
+                      "content": {
+                        "version": "KqlItem/1.0",
+                        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend ActivityType = iff(ActivityDisplayName has_any (dynamic([\"approval requested\",\"role requested\"])), \"requested\", \r\n    iff(ActivityDisplayName has_any (dynamic([\"approved \",\"denied\"])),\"approved/denied\", \"\"))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, Category, ActivityType\r\n| where ActivityType != \"\"\r\n| summarize count() by Identity, Category, ActivityType",
+                        "size": 0,
+                        "title": "Activity Type Summary",
+                        "timeContextFromParameter": "TimeRange",
+                        "queryType": 0,
+                        "resourceType": "microsoft.operationalinsights/workspaces",
+                        "crossComponentResources": [
+                          "{Workspace}"
+                        ]
+                      },
+                      "customWidth": "50",
+                      "name": "Activity Type Summary query"
+                    }
+                  ],
+                  "fallbackResourceIds": [
+                    "Azure Monitor"
+                  ],
+                  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
                 }
-              ],
-              "allowCustom": true
-            },
-            "timeContext": {
-              "durationMs": 86400000
-            },
-            "value": {
-              "durationMs": 1209600000
             }
-          }
-        ],
-        "style": "pills",
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces"
-      },
-      "name": "Parameters"
-    },
-    {
-      "type": 3,
-      "content": {
-        "version": "KqlItem/1.0",
-        "query": "AuditLogs\n| where LoggedByService == \"PIM\"\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\n| extend ResourceName = case(\n    Category==\"RoleManagement\",\n        iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))),\n    Category==\"GroupManagement\",\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])),\n    Category==\"ResourceManagement\",\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\n        iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\n        iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\n        ))),\"\")\n| extend Scope = case(\n    Category==\"RoleManagement\",\n        iff(isnotempty(TargetResources.[5].[\"displayName\"]),TargetResources.[5].[\"displayName\"],\n        iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])))),\n    Category==\"GroupManagement\",\n        iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\n            iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\n        iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])),\n    Category==\"ResourceManagement\",\n        iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\n        iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\n        iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\n        ))),\"\")\n| extend Subject = \n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category",
-        "size": 2,
-        "title": "All Category Audit History query",
-        "timeContextFromParameter": "TimeRange",
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces",
-        "crossComponentResources": [
-          "{Workspace}"
-        ],
-        "gridSettings": {
-          "rowLimit": 100,
-          "sortBy": [
-            {
-              "itemKey": "Identity",
-              "sortOrder": 1
-            }
-          ]
-        },
-        "sortBy": [
-          {
-            "itemKey": "Identity",
-            "sortOrder": 1
-          }
-        ]
-      },
-      "name": "All Category Audit History query",
-      "styleSettings": {
-        "showBorder": true
-      }
-    },
-    {
-      "type": 3,
-      "content": {
-        "version": "KqlItem/1.0",
-        "query": "AuditLogs\r\n| where TimeGenerated > ago(90d)\r\n| where LoggedByService == \"PIM\"\r\n| where Category == \"RoleManagement\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\r\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\r\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\r\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\r\n| extend ResourceName = \r\n    iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"])))\r\n| extend Scope = \r\n    iff(isnotempty(TargetResources.[5].[\"displayName\"]),TargetResources.[5].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Update role setting in PIM\",TargetResources.[2].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\",TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))))\r\n| extend Subject = \r\n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \r\n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \r\n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\r\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category, AdditionalDetails, TargetResources",
-        "size": 0,
-        "title": "Role Management",
-        "timeContextFromParameter": "TimeRange",
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces"
-      },
-      "customWidth": "30",
-      "name": "Group Management",
-      "styleSettings": {
-        "padding": "20"
-      }
-    },
-    {
-      "type": 3,
-      "content": {
-        "version": "KqlItem/1.0",
-        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| where Category == \"GroupManagement\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\r\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\r\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\r\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\r\n| extend ResourceName = \r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))\r\n| extend Scope = \r\n    iff(ActivityDisplayName == \"Remove member from role (PIM activation expired)\",\r\n        iff(TargetResources.[7].[\"displayName\"]!=\"\",TargetResources.[7].[\"displayName\"],TargetResources.[6].[\"displayName\"]),\r\n    iff(ActivityDisplayName has_any (dynamic ( [ \"request approved\",\"request denied\"])),TargetResources.[4].[\"displayName\"],TargetResources.[3].[\"displayName\"]))\r\n| extend Subject = \r\n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \r\n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \r\n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\r\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category, AdditionalDetails, TargetResources",
-        "size": 0,
-        "title": "Group Management",
-        "timeContextFromParameter": "TimeRange",
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces"
-      },
-      "customWidth": "30",
-      "name": "Group Management",
-      "styleSettings": {
-        "padding": "20"
-      }
-    },
-    {
-      "type": 3,
-      "content": {
-        "version": "KqlItem/1.0",
-        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| where Category == \"ResourceManagement\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend PrimaryTarget = TargetResources.[0].[\"displayName\"]\r\n| extend TicketSystem = iff(AdditionalDetails.[5].[\"key\"]==\"TicketSystem\",AdditionalDetails.[5].[\"value\"],\"\")\r\n| extend TicketNumber = iff(AdditionalDetails.[6].[\"key\"]==\"TicketNumber\",AdditionalDetails.[6].[\"value\"],\r\n    iff(AdditionalDetails.[5].[\"key\"]==\"TicketNumber\",AdditionalDetails.[5].[\"value\"],\"\"))\r\n| extend ResourceName = \r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\r\n    iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\r\n    )))\r\n| extend Scope = \r\n    iff(ActivityDisplayName == \"Add member to role request approved (PIM activation)\", TargetResources.[4].[\"displayName\"],\r\n    iff(ActivityDisplayName has \"Remove member from role completed\",TargetResources.[6].[\"displayName\"],\r\n    iff(ActivityDisplayName == \"Update role setting in PIM\", TargetResources.[2].[\"displayName\"],TargetResources.[3].[\"displayName\"]\r\n    )))\r\n| extend Subject = \r\n    iif(ActivityDisplayName has_any (dynamic ([\"request approved\",\"Update role setting in PIM\",\"request denied (PIM activation\"])), \"\", \r\n    iif(ActivityDisplayName has \"(PIM activation expired)\", TargetResources.[6].[\"displayName\"], TargetResources.[2].[\"displayName\"])) \r\n| extend ExpireTime = todatetime(iff(AdditionalDetails.[3].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[3].[\"value\"],\r\n    iff(AdditionalDetails.[4].[\"key\"]==\"ExpirationTime\",AdditionalDetails.[4].[\"value\"],\"\")))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, ResourceName,Scope, PrimaryTarget,Subject, Type, ResultDescription, TicketSystem, TicketNumber, Result, ResultReason, CorrelationId,ExpireTime, Category, AdditionalDetails, TargetResources",
-        "size": 0,
-        "title": "Resource Management",
-        "timeContextFromParameter": "TimeRange",
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces"
-      },
-      "customWidth": "30",
-      "name": "Resource Management",
-      "styleSettings": {
-        "padding": "20"
-      }
-    },
-    {
-      "type": 3,
-      "content": {
-        "version": "KqlItem/1.0",
-        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| summarize count() by Category\r\n| render piechart\r\n",
-        "size": 0,
-        "title": "Category Percentage",
-        "timeContext": {
-          "durationMs": 86400000
-        },
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces",
-        "visualization": "piechart"
-      },
-      "customWidth": "30",
-      "name": "Category Percentage Query"
-    },
-    {
-      "type": 3,
-      "content": {
-        "version": "KqlItem/1.0",
-        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| summarize count() by bin(ActivityDateTime, 1d), Category\r\n",
-        "size": 0,
-        "title": "Daily Activity Transition (Recently 30 day)",
-        "timeContext": {
-          "durationMs": 2592000000
-        },
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces",
-        "visualization": "timechart"
-      },
-      "customWidth": "70",
-      "name": "Daily Activity Transition query"
-    },
-    {
-      "type": 3,
-      "content": {
-        "version": "KqlItem/1.0",
-        "query": "AuditLogs\r\n| where LoggedByService == \"PIM\"\r\n| where ActivityDisplayName !in (dynamic([\"Resource updated\",\"Onboarded resource to PIM\"])) \r\n| extend ActivityType = iff(ActivityDisplayName has_any (dynamic([\"approval requested\",\"role requested\"])), \"requested\", \r\n    iff(ActivityDisplayName has_any (dynamic([\"approved \",\"denied\"])),\"approved/denied\", \"\"))\r\n| project ActivityDateTime, Identity, ActivityDisplayName, Category, ActivityType\r\n| where ActivityType != \"\"\r\n| summarize count() by Identity, Category, ActivityType",
-        "size": 0,
-        "title": "Activity Type Summary",
-        "timeContextFromParameter": "TimeRange",
-        "queryType": 0,
-        "resourceType": "microsoft.operationalinsights/workspaces",
-        "crossComponentResources": [
-          "{Workspace}"
-        ]
-      },
-      "customWidth": "50",
-      "name": "Activity Type Summary query"
-    }
-  ],
-  "fallbackResourceIds": [
-    "Azure Monitor"
-  ],
-  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+        }
+    ]
 }
